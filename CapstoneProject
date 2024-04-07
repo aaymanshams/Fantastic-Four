@@ -107,6 +107,33 @@ class Task {
                 current = current->next;
             }
         }
+  void CheckReminders(){
+
+            time_t currentTime = time(NULL);
+            currentTime += 5*3600 + 30*60;
+            int count = 0;
+
+            Node* temp = head;
+            cout << "Tasks that are due in 1 hour: " << endl;
+            while(temp != NULL){
+                if(temp -> status == true){
+                    temp = temp -> next;
+                    continue;
+                }
+                if( temp -> deadline <= currentTime + 3600 ){
+                    time_t a = temp -> deadline;
+                    cout << "Task: " << temp-> description << ", Priority: " << temp -> priority << ", Time Data: " << ctime(&a) << endl;
+                    count++;
+                }
+                temp = temp -> next;
+            }
+            if(count == 0){
+                cout << "No tasks are due in an hour..." << endl;
+            }else{
+                cout << "You have " << count << " tasks pending which are due in 1 hour!" << endl;
+            }
+
+        }
 
 
 
