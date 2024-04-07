@@ -134,7 +134,53 @@ class Task {
             }
 
         }
+void RemoveTask() {
 
+            if(head == NULL){
+                cout << "the list is empty. Try again." <<endl;
+                return;
+            }
+            string desp;
+            int year, month, day, hour, minute;
+            char colon;
+            cout << "Enter task to be deleted: "; cin >> desp;
+            cout << "Enter date of that task (DD/MM/YYYY): ";
+            cin >> day >> colon >> month  >> colon >> year;
+            cout << "Enter time of that task (HH:MM): "; cin >> hour >> colon >> minute;
+            
+            struct std::tm timeinfo = {};
+            timeinfo.tm_year = year - 1900; // Years since 1900
+            timeinfo.tm_mon = month - 1;    // Months since January
+            timeinfo.tm_mday = day;         // Day of the month
+            timeinfo.tm_hour = hour;        // Hours since midnight
+            timeinfo.tm_min = minute;       // Minutes after the hour
+
+            // Convert tm to time_t
+            time_t dl = mktime(&timeinfo);
+
+            time_t currentTime = time(0);
+            currentTime += 5*3600 + 30*60;
+
+            cout << "Enter the priority of that task(1-3): ";
+            int p; cin >> p;
+
+            Node* prev = NULL;
+            Node* curr = head;
+            while(curr != NULL){
+                if(curr->description == desp && curr->deadline == dl && curr->priority == p){
+                    if (prev == NULL) { 
+                        head = curr->next;
+                    } else {
+                        prev->next = curr->next;
+                    }
+                    cout << "Task deleted." << endl;
+                    return;
+                }
+                prev = curr;
+                curr = curr->next;
+            }
+            cout << "No such task found please try again." << endl;
+        }
 
 
 int main() {
