@@ -254,6 +254,42 @@ void Missedtasks(){
 
 int main() {
     
-    cout << "Hello world!" << endl;
+    Task a;
+    
+    int choice;
+    cout << "1. Add a Task.\n2. Display all Tasks\n3. Check Reminders\n4. Remove a Task.\n5. Complete a Task.\n6. View missed tasks.\n7. Exit." << endl;
+
+    do{
+        
+        cout << "ENTER YOUR CHOICE: "; cin >> choice;
+
+        switch(choice){
+            case 1:
+                a.AddTask();
+                break;
+            case 2:
+                a.DisplayTasks();
+                break;
+            case 3:
+                a.CheckReminders();
+                break;
+            case 4:
+                a.RemoveTask();
+                break;
+            case 5:
+                a.CompleteTask();
+                break;
+            case 6: 
+                a.Missedtasks();
+                break;
+            case 7:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Enter a valid choice." << endl;
+        }
+
+    }while(choice != 7);
+
     return 0;
 }
