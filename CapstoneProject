@@ -8,14 +8,16 @@ class Node {
     public:
     string description;
     time_t deadline;
+    bool status;
     int priority;
     Node* next;
     
     
-    Node(string x, int y, time_t z){
+    Node(string x, int y, time_t z, bool stat){
         this -> description = x;
         this -> priority = y;
         this -> deadline = z;
+        thus -> status = stat;
         this -> next = NULL;
     }
 };
