@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <ctime>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -92,8 +93,7 @@ class Task {
 
         }
         
-};
- void DisplayTasks() {
+        void DisplayTasks() {
             
             if(head == NULL){
                 cout << "No scheduled tasks :" << endl;
@@ -107,7 +107,7 @@ class Task {
                 current = current->next;
             }
         }
-  void CheckReminders(){
+        void CheckReminders(){
 
             time_t currentTime = time(NULL);
             currentTime += 5*3600 + 30*60;
@@ -134,7 +134,7 @@ class Task {
             }
 
         }
-void RemoveTask() {
+        void RemoveTask() {
 
             if(head == NULL){
                 cout << "the list is empty. Try again." <<endl;
@@ -181,7 +181,7 @@ void RemoveTask() {
             }
             cout << "No such task found please try again." << endl;
         }
-
+};
 
 
 int main() {
