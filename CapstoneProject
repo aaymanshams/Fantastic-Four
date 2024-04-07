@@ -224,9 +224,7 @@ class Task {
             }
             cout << "No such task found :(" << endl;
         }
-
-};
-void Missedtasks(){
+         void Missedtasks(){
 
             Node* temp = head;
             time_t currentTime = time(NULL);
