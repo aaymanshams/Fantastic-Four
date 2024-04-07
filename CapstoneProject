@@ -93,6 +93,21 @@ class Task {
         }
         
 };
+ void DisplayTasks() {
+            
+            if(head == NULL){
+                cout << "No scheduled tasks :" << endl;
+                return;
+            }
+            Node* current = head;
+            while (current) {
+                time_t a = current -> deadline;
+                cout << "Task: " << current-> description << ", Priority: " << current -> priority << ", Time Data: " << ctime(&a) << endl;
+                cout << (current -> status? "Status: completed" : "Status: pending") << endl;
+                current = current->next;
+            }
+        }
+
 
 
 int main() {
