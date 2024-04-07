@@ -17,7 +17,7 @@ class Node {
         this -> description = x;
         this -> priority = y;
         this -> deadline = z;
-        thus -> status = stat;
+        this -> status = stat;
         this -> next = NULL;
     }
 };
@@ -68,7 +68,7 @@ class Task {
                 }
             }
 
-            Node* NewNode = new Node(desp, p, dl);
+            Node* NewNode = new Node(desp, p, dl, false);
 
             if(head == NULL || p <= head -> priority ){  // && dl <= head -> deadline
 
@@ -191,7 +191,7 @@ class Task {
             string desp;
             int year, month, day, hour, minute;
             char colon;
-            cout << "Enter task to be deleted: "; cin >> desp;
+            cout << "Enter task to be completed: "; cin >> desp;
             cout << "Enter date of that task (DD/MM/YYYY): "; 
             cin >> day >> colon >> month  >> colon >> year;
             cout << "Enter time of that task (HH:MM): "; cin >> hour >> colon >> minute;
@@ -247,7 +247,7 @@ class Task {
             }
 
         }
-}
+};
 
 
 int main() {
