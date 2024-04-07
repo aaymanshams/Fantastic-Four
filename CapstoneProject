@@ -181,6 +181,30 @@ void RemoveTask() {
             }
             cout << "No such task found please try again." << endl;
         }
+void Missedtasks(){
+
+            Node* temp = head;
+            time_t currentTime = time(NULL);
+            int count = 0;
+
+            while(temp != NULL){
+
+                if(temp -> status == false && temp -> deadline < currentTime ){
+                    time_t a = temp -> deadline;
+                    cout << "Task: " << temp-> description << ", Priority: " << temp -> priority << ", Time Data: " << ctime(&a) << endl;
+                    cout << (temp -> status? "Status: completed" : "Status: pending") << endl;
+                    count++;
+                }
+                temp = temp -> next;
+
+            }
+
+            if(count == 0){
+                cout << "No missed tasks." << endl;
+            }
+
+        }
+};
 
 
 int main() {
